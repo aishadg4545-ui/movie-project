@@ -45,7 +45,7 @@ function Plan() {
             </p>
           </div>
 
-          {/* TOGGLE */}
+        
           <div className="mt-6 lg:mt-0 bg-[#111] p-1 rounded-xl flex w-49">
             <button
               onClick={() => setBilling("monthly")}
@@ -68,7 +68,7 @@ function Plan() {
           </div>
         </div>
 
-        {/* CARDS */}
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {plans.map((plan, index) => (
             <div

@@ -5,8 +5,10 @@ import Banner from '../Components/Main/Banner'
 
 function Movie_inside() {
   return (
-    <div >
-      
+    <div className=''>
+      <Header/>
+      <Casts/>
+      <Banner/>
     </div>
   )
 }

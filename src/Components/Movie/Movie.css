@@ -1,3 +1,5 @@
 .hero{
     background-image: url(../../public/img/Movie_inside.png);
+    max-width: 1400px;
+    margin-top: 80px;
 }

@@ -6,7 +6,7 @@ function Banner() {
       <div
         className="
           max-w-[1700px] mx-auto
-          bg-[url('https://variety.com/wp-content/uploads/2014/04/01-avengers-2012.jpg?w=1000&h=667&crop=1')]
+          bg-[url('../../../public/img/BgImg.png')]
           bg-cover bg-center
           rounded-2xl
           p-6 sm:p-10 md:p-16 lg:p-20

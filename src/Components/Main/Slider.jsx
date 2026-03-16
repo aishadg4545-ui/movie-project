@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { useNavigate } from "react-router-dom";
+import { ArrowRight,  ArrowLeft } from 'lucide-react';
 
 // Импорт стилей Swiper
 import "swiper/css";
@@ -41,20 +42,23 @@ function Slider() {
         </div>
 
         {/* Custom Navigation Arrows */}
-        <div className="flex gap-5 w-32 h-12 bg-[#1a1a1a] rounded-lg items-center justify-center mt-10 md:mt-0">
-          <button
-            ref={prevRef}
-            className="w-12 h-10 rounded-[10px] bg-black text-white hover:bg-[#2a2a2a] transition text-[20px]"
-          >
-            ←
-          </button>
-          <button
-            ref={nextRef}
-            className="w-12 h-10 rounded-[10px] bg-black text-white hover:bg-[#2a2a2a] transition text-[20px]"
-          >
-            →
-          </button>
-        </div>
+   <div className="flex gap-5 w-32 h-12 bg-[#1a1a1a] rounded-lg items-center justify-center mt-10 md:mt-0">
+  <button
+    ref={prevRef}
+  
+    className="w-12 h-10 flex items-center justify-center rounded-[10px] bg-black text-white hover:bg-[#2a2a2a] transition text-[20px]"
+  >
+    <ArrowLeft size={20} /> {/* Можно задать размер иконки для точности */}
+  </button>
+  
+  <button
+    ref={nextRef}
+    
+    className="w-12 h-10 flex items-center justify-center rounded-[10px] bg-black text-white hover:bg-[#2a2a2a] transition text-[20px]"
+  >
+    <ArrowRight size={20} />
+  </button>
+</div>
       </div>
 
       {/* Swiper Slider */}
@@ -85,23 +89,25 @@ function Slider() {
         }}
         className="max-w-[1700px] mx-auto"
       >
-        {staticMovies.map((movie) => (
-          <SwiperSlide key={movie.id} onClick={() => handleOpen(movie.id)}>
-            <div className="bg-[#0f0f0f] rounded-xl p-3 hover:scale-[1.05] transition cursor-pointer border border-[#1a1a1a]">
-              <div className="relative overflow-hidden rounded-lg">
-                <img
-                  src={movie.poster_path}
-                  alt={movie.title}
-                  className="w-full h-64 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-              </div>
-              <h3 className="text-white mt-4 font-medium text-sm truncate">
-                {movie.title}
-              </h3>
-            </div>
-          </SwiperSlide>
-        ))}
+       {staticMovies.map((movie) => (
+  <SwiperSlide key={movie.id} onClick={() => handleOpen(movie.id)}>
+    {/* Убрал отсюда hover:scale-[1.05] */}
+    <div className="bg-[#0f0f0f] rounded-xl p-3 transition cursor-pointer border border-[#1a1a1a]">
+      <div className="relative overflow-hidden rounded-lg">
+        <img
+          src={movie.poster_path}
+          alt={movie.title}
+        
+          className="w-full h-64 object-cover transition-transform duration-300 hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
+      </div>
+      <h3 className="text-white mt-4 font-medium text-sm truncate">
+        {movie.title}
+      </h3>
+    </div>
+  </SwiperSlide>
+))}
       </Swiper>
     </section>
   );
